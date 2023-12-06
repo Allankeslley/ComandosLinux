@@ -12,7 +12,6 @@ al=$(ls almoco-*)
 for p in $al
 
 do
-
 if [[ "$p" != "brocolis" ]]; then
  
  echo "$p"
