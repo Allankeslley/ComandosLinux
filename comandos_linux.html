@@ -1,0 +1,262 @@
+<html>
+
+*Conceitos
+Pasta, Diretório, Folder é tudo a mesma coisa
+Arquivo, File é a mesma coisa
+String, palavra, frase tudo a mesma coisa
+Path, Caminho tudo a mesma coisa
+*Comandos
+
+*cd entrar e sair de diretórios
+ex:
+	cd .. (voltar)
+	cd ~ (ir para home)
+	cd / (entrar na raiz)
+	cd /etc/nginx/ (path)
+
+
+*ls listar arquivos e pastas
+ex: 
+	ls <arquivo>
+	ls <pastas>
+	ls *<arquivo>*
+
+*ls -lha (vai listar todos arquivos, tamanhos, permissões, grupos e owners)
+ex:
+	ls -lha <arquivo>
+
+*cp (Use o comando cp para copiar arquivos ou diretórios e seu conteúdo. Abaixo, listamos alguns exemplos.
+Para copiar um arquivo do diretório atual para outro, digite cp seguido do nome do arquivo e do diretório de destino.
+ex:
+	cp nomedoarquivo.txt /home/username/Documents
+
+
+*rm (O comando rm é usado para excluir arquivos em um diretório.)
+ex:
+	rm <arquivo>
+
+*rm -rf (-rf permite que o sistema faça a remoção de arquivos e pastas sem confirmação )
+ex:
+	rm -rf <path>
+
+*mv (move de pastas ou renomeia arquivos)
+ex mover:
+	mv <arquivo> <parta-destino>
+
+ex renomear:
+	mv teste/teste.txt teste/teste-beta.txt
+
+*mkdir (criação de pastas, é capaz de criar uma ou várias pastas)
+ex:
+	mkdir pasta1 pasta2 pasta3
+
+*mkdir -p (criação de pastas em cadeia "parentes", uma dentro da outra)
+ex:
+	mkdir -p projeto/arquivos/testes
+
+
+* apt-get install ou apt install (instalação de programas que são publicos)
+ex:
+	apt-get install nginx
+
+* apt-get update (atualizar a lista de pacotes que se pode instalar)
+ex:
+	apt-get update
+
+* apt-get upgrade (atualizar o sistema operacional)
+ex:
+	apt-get upgrade
+
+*cat (exibe o conteudo de um ou vários arquivo)
+ex: 
+	cat <arquivo>
+	cat <path>/<arquivo>
+
+ex cat varios arquivos:
+	cat <arquivo1> <arquivo2> <arquivo3>
+
+ex cat arquivo com wildcard:
+	cat <arquivo>*  
+
+
+*pwd (exibe o path absoluto "full path" de onde voce esta)
+ex:
+	pwd
+
+*sudo (permite executar tarefas que exigem permissões administrativas ou de root.)
+ex:
+	sudo <comando>
+
+* | (permite enviar o resultado de um comando para a entrada de outro)
+ex: 
+	ls | grep <padrao>
+	cat <arquivo> | grep <padrao>
+
+	
+*grep (procura/filtra por um padrão, é utilizado em conjunto com o pipe)
+ex:
+	ls | grep <padrao>
+	cat <arquivo> | grep <padrao>
+
+
+*touch (criar um arquivo vazio)
+ex:
+	touch <arquivo>
+	touch <path>/<arquivo>
+
+
+*chmod (modifica permissões "leitura, escrita e execução" de um arquivo ou diretório) 
+ex permissão de execução muito utilizadas para scripts:
+	chmod a+x <path>/<arquivo>
+
+ex permissão all:
+	chmod 777 <path>/<arquivo>
+   
+*exit (termina a sessão fecha o terminal ou para a execução de um script)
+ex:
+	exit
+
+*echo (exibe um conteúdo na nela)
+ex:
+	echo <palavra>
+	echo $variavel
+	echo $(commando)
+
+* > (envia o resultado de um comando para um arquivo, mas limpa o conteudo do arquivo antes)
+ex:
+	echo "teste" > batata/arquivo.txt
+	cat dell.txt > allan.txt
+
+* >>  (envia o resultado de um comando para um arquivo adicionando sempre ao final do arquivo)
+
+* ps (lista todos os processos em na sua aba do terminal)
+ex:
+	ps
+
+* ps aux (lista todos os processos em execução do linux)
+ex:
+	ps aux
+
+ex pode ser usado junto do grep para procurar um processo em especifico:
+	ps aux | grep nginx
+
+*du -sh (lista arquivo e pastas e seus respectivos tamanhos)
+ex lista todos os arquivos e seus tamanhos individuais: 
+	du -sh * 
+
+ex listar o tamanho total de uma pasta ou arquivo:
+	du -sh <path-pasta>
+	du -sh <path-pasta>/<arquivo>
+
+*ping (verifica a rede se você consegue conectar em um destino)
+ex:
+	ping <ip>
+	ping google.com.br
+
+
+*history (lista os últimos 500 comandos que foram executados)
+
+
+*tail -f (exibe as últimas linhas de um arquivo e fica preso nele, e caso ele receba novas linhas e a lista na tela ele é muito utilizado para ficar lendo arquivo de logs de aplicações)
+ex:
+	tail -f /var/log/nginx/access.log 
+
+
+*wc -l (Conta o número de linhas)
+ex:
+	wc -l <arquivo>
+	ls -lha | wc -l
+	cat <arquivo> | wc -l
+
+
+
+*kill -9 (é usado geralmente para terminar a execução de processos identificados pelo seu PID, para saber o pid é possivel usar o ps aux)
+ex:
+	kill -9 47547
+
+*pkill (permiti fechar um programa sem precisar do PID pode se usar o nome do programa)
+	pkill sublime
+	pkill code
+	pkill chrome
+
+
+*find (permiti fazer uma busca)
+ex buscar um arquivo em todas as pastas do sistema:
+	find / -name 'teste.txt' 
+
+ex buscar um arquivo em uma pasta especifica
+	find <path-pasta> -name 'teste.txt' 
+
+*vim (é um editor de textos via terminal), principais comandos do vim
+	:q! - sair
+	:wq! - sair e salvar
+	i: modo de edição
+	/: procurar por uma palavra
+
+
+*curl (permite exibir paginas da internet ou baixar arquivos)
+ex:
+	curl google.com.br
+	curl -O https://releases.ubuntu.com/20.04.1/ubuntu-20.04.1-desktop-amd64.iso
+
+
+*wget (ferramenta para conseguir fazer download de arquivos da Web.)
+ex:
+	wget https://releases.ubuntu.com/20.04.1/ubuntu-20.04.1-desktop-amd64.iso
+
+*telnet (é utilizado para testar se uma porta esta aberta)
+	telnet <ip> <porta>
+	telnet <dominio> <porta>
+	telent 10.0.0.1 80
+	telnet google.com.br 443
+
+*ifconfig (exibe as configurações das placas de rede do sistema)
+ex:
+	ifconfig
+
+
+*git clone (é usado para fazer o download de um repositório)]
+ex:
+	git clone git@github.com:Allankeslley/ComandosLinux.git
+
+
+*git status (exibe o status dos arquivos dentro de um repositório, se eles foram modificados e precisam ser adicionados ou se ja foram adicionados)
+ex:
+	git status
+
+
+*git add (marcar os arquivos para serem comitados)
+ex:
+	git add <arquivo>
+	git add <path>/<arquivo>
+	git add .
+	git add <arquivo>*.<extensão>
+
+
+*git commit (salva os arquivos alterados, mas é necessário criar uma mensagem especificando o que foi feito)
+	git commit -m 'criando script de limpeza'
+
+*git push (envia as alterações comitadas para o github)
+ex:
+	git push origin <branch>
+	git push origin main
+
+* git pull (é usado para baixar as alterações que outras pessoas fizeram no repositório)
+ex:
+	git pull origin <branch>
+	git pull origin main
+
+* git reset (desfaz alterações feitas em arquivos dentro de um repositório que ainda não foram dado o push)
+ex:
+	git reset <arquivo>
+	git reset HEAD --hard (limpa todas as alterações que não foram dado push deixando o repositório local igual ao github)
+
+*git checkout (permite a mudança de branch ou criação de novos branchs)
+ex:
+	git checkout <branch>
+	git checkout main
+	git checkout -b teste (irá criar um novo branch usando o seu branch atual como base)
+
+* pode ser utilizado em vários lugares e serve como coringa para substituir parte do nome de um arquivo, pasta, palavra
+
+</html>
