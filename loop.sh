@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 for t in batata cenoura tomate brocolis
 
 do
@@ -20,5 +19,3 @@ if [[ "$p" != "brocolis" ]]; then
 fi
 
 done
-
-
