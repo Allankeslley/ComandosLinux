@@ -1,0 +1,278 @@
+#Introdução#
+
+Python é uma linguagem dinamicamente tipada,
+o que significa que não é necessário declarar o tipo de variável ou fazer casting(mudar o tipo de variável),
+pois o Interpretador se encarrega disso para nós!
+Isso significa também que o tipo da variável poder variar durante a execução do programa.
+Os tipos de dados padrão do Python são:
+
+*Inteiro (int)
+*Ponto Flutuante ou Decimal (float)
+*Tipo Complexo (complex)
+*String (str)
+*Boolean (bool)
+*List (list)
+*Tuple
+*Dictionary (dic)
+
+#Tipo Inteiro (int)#
+
+O tipo inteiro é um tipo composto por caracteres numéricos (algarismos) inteiros.
+É um tipo usado para um número que pode ser escrito sem um componente decimal,
+podendo ter ou não sinal, isto é: ser positivo ou negativo.
+Por exemplo, 21, 4, 0, e −2048 são números inteiros, enquanto 9.75, 1/2, 1.5 não são.
+
+Exemplo:
+
+idade = 29
+ano = 1994
+ 
+print(type(idade))
+print(type(ano))
+
+Saída:
+
+class 'int'
+class 'int'
+
+#Ponto Flutuante ou Decimal (float)#
+
+É um tipo composto por caracteres numéricos (algarismo) decimais.
+O famoso ponto flutuante,é um tipo usado para números racionais:
+(números que podem ser representados por uma fração) informalmente conhecido como “número quebrado”.
+
+Exemplos:
+
+altura = 1.80
+peso = 73.55
+
+print(type(peso))
+print(type(altura))
+
+Saída:
+
+class 'float'
+class 'float'
+
+#Complexo (complex)#
+
+Tipo de dado usado para representar números complexos.
+Esse tipo normalmente é usado em cálculos geométricos e científicos.
+Um tipo complexo contem duas partes: a parte real e a parte imaginária,
+sendo que a parte imaginária contem um j no sufixo.
+
+A função complex(real[, imag]) do Python possibilita a criação de números imaginários passando como argumento:
+real, que é a parte Real do número complexo e o argumento opcional imag, 
+representando a parte imaginária do número complexo.
+
+Exemplos:
+
+a = 5+2j
+b = 20+6j
+
+print(type(a))
+print(type(b))
+print(complex(2, 5))
+
+Saída:
+
+class 'complex'
+class 'complex'
+
+(2+5j)
+
+
+#String (str)#
+
+É um conjunto de caracteres dispostos numa determinada ordem,
+geralmente utilizada para representar palavras, frases ou textos.
+
+Exemplos:
+
+nome = 'Derlemando'
+profissao = 'Engenheiro de Software'
+
+print(type(profissao))
+print(type(nome))
+
+Saída:
+
+class 'str'
+class 'str'
+
+#Boolean (bool)#
+
+Tipo de dado lógico que pode assumir apenas dois valores: falso ou verdadeiro (False ou True em Python).
+
+Na lógica computacional, podem ser considerados como 0 ou 1.
+
+Exemplos:
+
+fim_de_semana = True
+feriado = False
+
+print(type(fim_de_semana))
+print(type(feriado))
+Saída:
+
+class 'bool'
+class 'bool'
+
+#Listas (list)#
+
+Tipo de dado muito importante e que é muito utilizado no dia a dia do desenvolvedor Python!
+
+Listas agrupam um conjunto de elementos variados, podendo conter: inteiros, floats, strings,
+ outras listas e outros tipos.
+ Elas são definidas utilizando-se colchetes para delimitar a lista e vírgulas para separar os elementos.
+
+alunos = ['Amanda', 'Ana', 'Bruno', 'João']
+notas = [10, 8.5, 7.8, 8.0] 
+
+print(type(alunos))
+print(type(notas))
+
+Saída:
+
+class 'list'
+class 'list'
+
+
+#Tuplas (tuple)#
+
+Assim como Lista, Tupla é um tipo que agrupa um conjunto de elementos.
+
+Porém sua forma de definição é diferente: utilizamos parênteses e também separado por vírgula.
+
+A diferença para Lista é que Tuplas são imutáveis, ou seja, após sua definição, Tuplas não podem ser modificadas.
+
+exemplo:
+
+valores = (90, 79, 54, 32, 21)
+pontos = (100, 94.05, 86.8, 62)
+
+print(type(valores))
+print(type(pontos))
+
+Saída:
+
+class 'tuple'
+class 'tuple'
+
+#Dicionários (dict)#
+
+Dict é um tipo de dado muito flexível do Python.
+
+Eles são utilizados para agrupar elementos através da estrutura de chave e valor, 
+onde a chave é o primeiro elemento seguido por dois pontos e pelo valor.
+
+exemplo:
+
+altura = {'Amanda': 1.65, 'Ana': 1.60, 'João': 1.70}
+peso = {'Amanda': 60, 'Ana': 58, 'João': 68}
+
+print(type(altura))
+print(type(peso))
+
+Saída:
+
+class 'dict'
+class 'dict'
+
+Dicionários possibilitam um tipo de manipulação muito poderosa, chamada de Dict Comprehensions!
+
+
+#######Como mudar o tipo de uma variável######
+
+Em determinados cenários pode ser necessário mudar o tipo de uma variável.
+
+exemplos de como trocar o tipo de variáveis.
+
+
+*Inteiro (int) para Decimal (float)*
+
+exemplo:
+
+idade = 18
+ida = float(idade)
+print(type(ida))
+print(idade)
+
+Saída:
+
+<class 'float'>
+18
+
+
+*Decimal (float) para String (str)*
+
+exemplo:
+
+altura = 1.80
+alt = str(altura)
+print(type(alt))
+print(altura)
+
+Saída:
+
+class 'str'
+'1.8'
+
+
+*String(str) para List(list)*
+
+exemplo:
+
+teste = "Python"
+test = list(teste)
+print(type(test))
+print(teste)
+
+Saída:
+
+['P', 'y', 't', 'h', 'o', 'n']
+
+
+*Boleano (bool) para Inteiro (int)*
+
+exemplo:
+
+fim_de_semana = True
+fim_de_semana = int(fim_de_semana)
+print(type(fim_de_semana))
+print(fim_de_semana)
+
+
+Saída:
+
+class 'int'
+1
+
+
+*List(list) para String(str)*
+
+exemplo:
+
+lista = [10, 20, 30]
+num = str(lista)
+print(type(num))
+print(lista)m))
+
+
+Saída:
+
+class 'str'
+
+
+Dictionary(dic) para lista(list)
+
+exemplo:
+
+frutas = {"a": "maça", "b": "banana", "c": "cereja", "d": "melancia"}
+fru = list(frutas)
+print(type(fru))
+print(frutas)
+
+Saída:
+
+class 'list'
