@@ -273,6 +273,20 @@ ex:
 	git checkout main
 	git checkout -b teste (irá criar um novo branch usando o seu branch atual como base)
 
-* pode ser utilizado em vários lugares e serve como coringa para substituir parte do nome de um arquivo, pasta, palavra
+(/*) pode ser utilizado em vários lugares e serve como coringa para substituir parte do nome de um arquivo, pasta, palavra
+
+
+*ssh -i (comando para entrar em intâncias com key)
+	ex:
+		ssh -i Downloads/Name.pem ec2-user@3.137.210.237
+
+*ssh (comando para entrar em intâncias com user e senha)
+ 	ex:
+ 		ssh user@host
+
+*scp -i pathlocal/nomedachave.pem -r +(path com origem da pasta)+(path com local de armazenamento) =>(para enviar pasta para um servidor)
+	ex:
+		 scp -i Downloads/Name.pem -r Projects/Allan/AKING_tech/SiteConsultoria/ ec2-user@3.137.210.237:/home/ec2-user
+
 
 </html>
