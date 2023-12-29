@@ -1,0 +1,11 @@
+aws ec2 start-instances --instance-ids i-{id instancia}
+aws ec2 describe-instances | grep ip
+aws ec2 describe-instances | grep PublicIpAddress
+aws ec2 stop-instances \ --instance-ids i-{id de intancia}
+aws ec2 stop-instances \ --instance-ids i-{id de intancia}
+sudo systemctl status nginx
+sudo systemctl start nginx
+sudo systemctl enable nginx
+sudo systemctl stop nginx
+ssh -i Downloads/key.pem ec2-user@{endereço de ip}
+aws route53 change-resource-record-sets --hosted-zone-id {id zona Hospedada}  --change-batch file://{arquivo}.json
