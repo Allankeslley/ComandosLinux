@@ -1,0 +1,70 @@
+certificado SSL da Let’s Encrypt:
+
+INICIAR INSTÂNCIA
+
+ATENÇÃO ESTAR ATENDO A:(ID DA ZONA HOSPEDADA E IP DA INSTÂNCIA.O IP DA INSTÂNCIA PODE SER ALTERADA NO ARQUIVO JSON)
+
+aws route53 change-resource-record-sets --hosted-zone-id Z04922282LOJDMBEM00D  --change-batch file://aw.json
+
+LOGAR NO SERVIDOR
+
+sudo ssh -i Downloads/prd.pem ec2-user@{IP}
+sudo yum install certbot -y
+sudo certbot -d [NOME DO DOMINIO] --manual --preferred-challenges dns certonly
+
+ CONFIRMAR TODAS AS SOLITAÇÕES
+ OBS:Insira seu endereço de e-mail quando solicitado, porque ele é usado para renovação e notificações de segurança.
+
+ A Let’s Encrypt agora solicitará que você verifique se é o proprietário do domínio especificado. Você pode fazer isso adicionando registros TXT para os registros DNS para seu domínio. Um conjunto de valores de registro TXT. 
+
+=>VA ATE ROUTE 53 E ADICIONE REGISTRO DE ACORDO SOLICITADO NO ARQUIVO.
+
+CERTIFICADO CRIADO.
+
+sudo ls -lha {path onde encontra-se o arquivo}
+
+MOVER OU COPIAR CERTIFICADO PARA NGINX
+
+EX:
+	mkdir -p /etc/nginx/certificate
+	sudo cp  /etc/letsencrypt/live/dves.cloud-0001/privkey1.pem /etc/letsencrypt/live/dves.cloud-0001/fullchain1.pem  /etc/nginx/certificate/
+
+ABRIR O ARQUIVO 
+
+sudo vim /etc/nginx/nginx.conf 
+
+
+   server {
+        listen       80;
+        listen       [::]:80;
+        server_name  _;
+        root         /usr/share/nginx/html;
+        return 301 https://$host$request_uri;
+        # Load configuration files for the default server block.
+        include /etc/nginx/default.d/*.conf;
+
+        error_page 404 /404.html;
+        location = /404.html {
+        }
+
+        error_page 500 502 503 504 /50x.html;
+        location = /50x.html {
+        }
+    }
+server {
+        listen 443 ssl default_server;
+        listen [::]:443 ssl default_server;
+        ssl_certificate /etc/nginx/certificate/fullchain1.pem;
+        ssl_certificate_key /etc/nginx/certificate/privkey1.pem;
+        root  /usr/share/nginx/html;
+        index index.html index.htm index.nginx-debian.html;
+        server_name _;
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
+
+
+RESTART NO SERVIDOR
+
+sudo systemctl restart nginx
