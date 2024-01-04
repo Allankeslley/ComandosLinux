@@ -1,0 +1,60 @@
+*como criar certificado auto assinado:LOGAR NO SERVIDOR
+
+COMANDOS=>
+
+°sudo su
+°yum install nginx openssl
+°mkdir -p /etc/nginx/certificate
+°sudo cd /etc/nginx/certificate
+°openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out nginx-certificate.crt -keyout nginx.key
+
+*vai gerar o certificado:
+
+Generating a RSA private key
+............++++
+.......................................................++++
+writing new private key to 'nginx.key'
+-----
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:BR
+State or Province Name (full name) [Some-State]:Rio de Janeiro
+Locality Name (eg, city) []:
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:TechExpert
+Organizational Unit Name (eg, section) []:
+Common Name (e.g. server FQDN or YOUR name) []:{obs:adicionar o domínio ou ip}
+Email Address []:
+
+*EDITAR ARQUIVO:
+
+°sudo vim /etc/nginx/nginx.conf
+
+*ADICIONAR:
+
+ADICIONAR LINHA NA PORTA [80]
+
+     return 301 https://$host$request_uri; 
+
+server {
+        listen 443 ssl default_server;
+        listen [::]:443 ssl default_server;
+        ssl_certificate /etc/nginx/certificate/nginx-certificate.crt;
+        ssl_certificate_key /etc/nginx/certificate/nginx.key;
+        root {PATH COMPLETO}
+        index index.html index.htm index.nginx-debian.html;
+        server_name _;
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
+
+*RESTART O SERVIÇO NGINX.
+
+°systemctl restart nginx
+
+ABRIR NAVEGADOR COM O DOMINIO.
