@@ -1,0 +1,12 @@
+criando iam atraves do CLI
+
+aws iam create-user --user-name akos
+aws iam create-login-profile --user  akos --password 12qwaszx@@
+aws iam delete-login-profile --user akos
+aws iam create-access-key  --user  akos
+aws iam attach-user-policy --user akos --policy-arn arn:aws:iam::757446565981:policy/app-s3
+ 
+*movendo e apagando arquivo atraves CLI
+
+aws s3 mv s3://dvescon/Profile.pdf .  --profile akos
+aws s3 rm s3://dves/Profile.pdf --profile akos
