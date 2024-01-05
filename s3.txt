@@ -1,0 +1,80 @@
+Criando bucket atraves da cli
+
+comandos:
+
+*Para criar um bucket
+
+ ex:
+ 	aws s3 mb s3://bucket-name
+
+*Para listar buckets e objetos
+
+
+ex:
+	aws s3 ls s3://bucket-name
+	aws s3 ls s3://bucket-name/example/
+
+*Excluir buckets
+
+
+ex:
+	$aws s3 rb s3://bucket-name
+
+*Excluir arquivos
+
+ex:
+	$ aws s3 rm s3://bucket-name/example/filename.txt
+
+para exclui todos os objetos de s3://bucket-name/example usando a opção --recursive.
+
+ex:
+	aws s3 rm s3://bucket-name/example --recursive
+
+*Mover objetos
+
+O exemplo a seguir move todos os objetos de s3://bucket-name/example para s3://my-bucket/.
+
+ex:
+	$ aws s3 mv s3://bucket-name/example s3://my-bucket/
+
+O exemplo a seguir move um arquivo local do diretório de trabalho atual para o bucket do Amazon S3 com o comando s3 mv.
+
+ex:
+	$ aws s3 mv filename.txt s3://bucket-name
+
+O exemplo a seguir move um arquivo do bucket do Amazon S3 para o diretório de trabalho atual, onde ./ especifica o diretório de trabalho atual.
+
+ex:
+	$ aws s3 mv s3://bucket-name/filename.txt ./
+
+*Copiar arquivos
+
+
+O exemplo a seguir copia todos os objetos de s3://bucket-name/example para s3://my-bucket/.
+
+ex:
+	$ aws s3 cp s3://bucket-name/example s3://my-bucket/
+
+O exemplo a seguir copia um arquivo local do diretório de trabalho atual para o bucket do Amazon S3 com o comando s3 cp.
+
+ex:
+	$ aws s3 cp filename.txt s3://bucket-name
+
+O exemplo a seguir copia um arquivo do bucket do Amazon S3 para o diretório de trabalho atual, onde ./ especifica o diretório de trabalho atual.
+
+ex:
+	$ aws s3 cp s3://bucket-name/filename.txt ./
+
+O exemplo a seguir usa echo para transmitir o texto “hello world” para o arquivo s3://bucket-name/filename.txt.
+
+ex:
+	$ echo "hello world" | aws s3 cp - s3://bucket-name/filename.txt
+
+
+Para copiar um diretório de trabalho atual para o bucket do Amazon S3 com o comando s3 cp
+deve ser usado o --recursive veja o exemplo a seguir.
+
+ex:
+	aws s3 cp --recursive Projects/Allan/AKING_tech/SiteConsultoria s3://dvescon
+
+
