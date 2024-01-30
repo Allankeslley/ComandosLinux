@@ -7,5 +7,6 @@ sudo systemctl status nginx
 sudo systemctl start nginx
 sudo systemctl enable nginx
 sudo systemctl stop nginx
-ssh -i Downloads/key.pem ec2-user@{endereço de ip}
+ssh -i Downloads/key.pem ec2-user@{endereco de ip}
 aws route53 change-resource-record-sets --hosted-zone-id {id zona Hospedada}  --change-batch file://{arquivo}.json
+aws s3 cp --recursive ./Projects/Allan/AKING_tech/SiteConsultoria/ s3://hml.dves.cloud/
